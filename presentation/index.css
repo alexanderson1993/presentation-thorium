@@ -1,0 +1,386 @@
+@import url("https://fonts.googleapis.com/css?family=Saira");
+@import url("https://fonts.googleapis.com/css?family=Titillium+Web:200");
+
+.react-live-dark pre.prism-code {
+  background: black !important;
+}
+.card-area div {
+  background-color: transparent !important;
+}
+
+.layout-glass {
+  background-color: black;
+  position: fixed;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  font-family: "Saira", sans-serif;
+}
+.layout-glass .card-area,
+.layout-glass .card-area p,
+.layout-glass .card-area h1,
+.layout-glass .card-area h2,
+.layout-glass .card-area h3,
+.layout-glass .card-area h4,
+.layout-glass .card-area h5,
+.layout-glass .card-area h6 {
+  font-family: "Saira", sans-serif !important;
+  color: #eee !important;
+}
+.layout-glass .frame-text h1,
+.layout-glass .frame-text h2 {
+  font-family: "Bebas Neue";
+  font-weight: 300;
+  margin: 0;
+}
+.layout-glass .widgets {
+  top: 6vh;
+  left: 39vw;
+  width: 23vw;
+  display: flex;
+  justify-content: space-between;
+}
+.layout-glass .card-icon-container {
+  top: 33vh;
+  left: 3vw;
+}
+.layout-glass .card-icon-container .card-icon-item {
+  margin-bottom: 97px;
+}
+.layout-glass .card-icon-container .card-icon {
+  opacity: 0.8;
+}
+.layout-glass .card-icon-container .card-icon-background {
+  background-color: transparent !important;
+}
+.layout-glass .card-icon-container .card-button-mask {
+  top: 10px;
+}
+.layout-glass .card-icon-container .btn {
+  width: 0;
+  overflow: hidden;
+  transition: width 0.5s ease, padding 0.5s ease;
+  padding-left: 0px;
+  padding-right: 0;
+  font-size: 24px;
+}
+.layout-glass .card-icon-container:hover .btn {
+  width: 100%;
+  padding-left: 30px;
+  padding-right: 20px;
+}
+.layout-glass .simulator-name,
+.layout-glass .station-name,
+.layout-glass .login-name {
+  text-shadow: 0px 0px 4px #3c69c7;
+  position: absolute;
+  text-align: center;
+  color: #aaa;
+  z-index: -40;
+}
+.layout-glass .simulator-name {
+  top: 4.8vh;
+  left: 5vh;
+  font-size: 6vh;
+  width: 30vw;
+}
+.layout-glass .station-name {
+  top: 4.8vh;
+  right: 5vh;
+  font-size: 6vh;
+  width: 30vw;
+}
+.layout-glass .login-name {
+  top: 13vh;
+  left: 5vh;
+  font-size: 4vh;
+  width: 26vw;
+}
+.layout-glass .cardContainer {
+  max-width: 88vw;
+  height: 75vh;
+  width: 100%;
+  position: absolute;
+  left: 10vw;
+  top: 19vh;
+  z-index: 100000;
+}
+.layout-glass video#frame-bg {
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  pointer-events: none;
+  position: fixed;
+  width: 100vw;
+  height: 100vh;
+  z-index: 100;
+  mix-blend-mode: lighten;
+}
+.layout-glass .simName-graphic {
+  background-image: url(./SimName.png);
+  position: fixed;
+  background-size: contain;
+  width: 32vw;
+  height: 8vh;
+  top: 4vh;
+  left: 2vw;
+  z-index: -50;
+}
+.layout-glass .cards-graphic {
+  background-image: url(./Cards.png);
+  position: fixed;
+  background-size: contain;
+  transform: rotate(270deg);
+  width: 47vw;
+  height: 13.5vh;
+  left: -18vw;
+  top: 54vh;
+  z-index: -50;
+}
+.layout-glass .color-image {
+  width: 100vw;
+  height: 100vh;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  pointer-events: none;
+  position: fixed;
+  mix-blend-mode: screen;
+  z-index: -10;
+  background-size: cover;
+  background: linear-gradient(135deg, #000000 20%, #001d5c 53%, #000000 80%);
+}
+.layout-glass .stationName-graphic {
+  background-image: url(./StationName.png);
+  position: fixed;
+  background-size: contain;
+  width: 32vw;
+  height: 7vh;
+  right: 2vw;
+  top: 4vh;
+  z-index: -50;
+}
+.layout-glass .widgets-graphic {
+  background-image: url(./Widgets.png);
+  position: fixed;
+  background-size: contain;
+  width: 36vw;
+  height: 5.5vh;
+  left: 36vw;
+  top: 5.5vh;
+  z-index: -50;
+}
+.layout-glass .username-graphic {
+  background-image: url(./Username.png);
+  position: fixed;
+  background-size: contain;
+  width: 27vw;
+  height: 6vh;
+  left: 2vw;
+  top: 12vh;
+  z-index: -50;
+}
+.layout-glass button {
+  color: white;
+  font-weight: 600;
+  font-family: "Saira", sans-serif;
+  font-size: 16px;
+  padding: 5px;
+  border-radius: 5px;
+  transition: all 0.1s ease;
+}
+.layout-glass button.btn-default {
+  background-color: transparent;
+  background: rgba(104, 104, 104, 0.3);
+  border: solid 1px #686868;
+  color: white;
+  text-shadow: 0px 0px 5px black;
+  box-shadow: inset 0px 0px 20px -5px rgba(94, 100, 114, 0.5),
+    0px 0px 15px -2px #5e6472;
+}
+.layout-glass button.btn-default:hover:not([disabled]) {
+  color: white;
+  background: rgba(104, 104, 104, 0.5);
+  box-shadow: inset 0px 0px 20px 0px #5e6472, 0px 0px 10px -2px #5e6472;
+}
+.layout-glass button.btn-default:focus {
+  color: white;
+  box-shadow: inset 0px 0px 20px 0px #5e6472, 0px 0px 10px -2px #5e6472;
+}
+.layout-glass button.btn-default:active,
+.layout-glass button.btn-default.active {
+  color: white;
+  background: rgba(104, 104, 104, 0.3);
+  box-shadow: inset 0px 0px 20px 0px #30333a, 0px 0px 10px -2px #5e6472;
+}
+.layout-glass button.btn-primary {
+  background-color: transparent;
+  background: rgba(67, 91, 141, 0.3);
+  border: solid 1px #435b8d;
+  color: white;
+  text-shadow: 0px 0px 5px black;
+  box-shadow: inset 0px 0px 20px -5px rgba(57, 87, 151, 0.5),
+    0px 0px 15px -2px #395797;
+}
+.layout-glass button.btn-primary:hover:not([disabled]) {
+  color: white;
+  background: rgba(67, 91, 141, 0.5);
+  box-shadow: inset 0px 0px 20px 0px #395797, 0px 0px 10px -2px #395797;
+}
+.layout-glass button.btn-primary:focus {
+  color: white;
+  box-shadow: inset 0px 0px 20px 0px #395797, 0px 0px 10px -2px #395797;
+}
+.layout-glass button.btn-primary:active,
+.layout-glass button.btn-primary.active {
+  color: white;
+  background: rgba(67, 91, 141, 0.3);
+  box-shadow: inset 0px 0px 20px 0px #1d2c4d, 0px 0px 10px -2px #395797;
+}
+.layout-glass button.btn-secondary {
+  background-color: transparent;
+  background: rgba(150, 102, 54, 0.3);
+  border: solid 1px #966636;
+  color: white;
+  text-shadow: 0px 0px 5px black;
+  box-shadow: inset 0px 0px 20px -5px rgba(160, 103, 44, 0.5),
+    0px 0px 15px -2px #a0672c;
+}
+.layout-glass button.btn-secondary:hover:not([disabled]) {
+  color: white;
+  background: rgba(150, 102, 54, 0.5);
+  box-shadow: inset 0px 0px 20px 0px #a0672c, 0px 0px 10px -2px #a0672c;
+}
+.layout-glass button.btn-secondary:focus {
+  color: white;
+  box-shadow: inset 0px 0px 20px 0px #a0672c, 0px 0px 10px -2px #a0672c;
+}
+.layout-glass button.btn-secondary:active,
+.layout-glass button.btn-secondary.active {
+  color: white;
+  background: rgba(150, 102, 54, 0.3);
+  box-shadow: inset 0px 0px 20px 0px #503316, 0px 0px 10px -2px #a0672c;
+}
+.layout-glass button.btn-success {
+  background-color: transparent;
+  background: rgba(54, 150, 54, 0.3);
+  border: solid 1px #369636;
+  color: white;
+  text-shadow: 0px 0px 5px black;
+  box-shadow: inset 0px 0px 20px -5px rgba(44, 160, 44, 0.5),
+    0px 0px 15px -2px #2ca02c;
+}
+.layout-glass button.btn-success:hover:not([disabled]) {
+  color: white;
+  background: rgba(54, 150, 54, 0.5);
+  box-shadow: inset 0px 0px 20px 0px #2ca02c, 0px 0px 10px -2px #2ca02c;
+}
+.layout-glass button.btn-success:focus {
+  color: white;
+  box-shadow: inset 0px 0px 20px 0px #2ca02c, 0px 0px 10px -2px #2ca02c;
+}
+.layout-glass button.btn-success:active,
+.layout-glass button.btn-success.active {
+  color: white;
+  background: rgba(54, 150, 54, 0.3);
+  box-shadow: inset 0px 0px 20px 0px #165016, 0px 0px 10px -2px #2ca02c;
+}
+.layout-glass button.btn-info {
+  background-color: transparent;
+  background: rgba(54, 150, 150, 0.3);
+  border: solid 1px #369696;
+  color: white;
+  text-shadow: 0px 0px 5px black;
+  box-shadow: inset 0px 0px 20px -5px rgba(44, 160, 160, 0.5),
+    0px 0px 15px -2px #2ca0a0;
+}
+.layout-glass button.btn-info:hover:not([disabled]) {
+  color: white;
+  background: rgba(54, 150, 150, 0.5);
+  box-shadow: inset 0px 0px 20px 0px #2ca0a0, 0px 0px 10px -2px #2ca0a0;
+}
+.layout-glass button.btn-info:focus {
+  color: white;
+  box-shadow: inset 0px 0px 20px 0px #2ca0a0, 0px 0px 10px -2px #2ca0a0;
+}
+.layout-glass button.btn-info:active,
+.layout-glass button.btn-info.active {
+  color: white;
+  background: rgba(54, 150, 150, 0.3);
+  box-shadow: inset 0px 0px 20px 0px #165050, 0px 0px 10px -2px #2ca0a0;
+}
+.layout-glass button.btn-warning {
+  background-color: transparent;
+  background: rgba(150, 102, 54, 0.3);
+  border: solid 1px #966636;
+  color: white;
+  text-shadow: 0px 0px 5px black;
+  box-shadow: inset 0px 0px 20px -5px rgba(160, 103, 44, 0.5),
+    0px 0px 15px -2px #a0672c;
+}
+.layout-glass button.btn-warning:hover:not([disabled]) {
+  color: white;
+  background: rgba(150, 102, 54, 0.5);
+  box-shadow: inset 0px 0px 20px 0px #a0672c, 0px 0px 10px -2px #a0672c;
+}
+.layout-glass button.btn-warning:focus {
+  color: white;
+  box-shadow: inset 0px 0px 20px 0px #a0672c, 0px 0px 10px -2px #a0672c;
+}
+.layout-glass button.btn-warning:active,
+.layout-glass button.btn-warning.active {
+  color: white;
+  background: rgba(150, 102, 54, 0.3);
+  box-shadow: inset 0px 0px 20px 0px #503316, 0px 0px 10px -2px #a0672c;
+}
+.layout-glass button.btn-cloak {
+  background-color: transparent;
+  background: rgba(102, 54, 150, 0.3);
+  border: solid 1px #663696;
+  color: white;
+  text-shadow: 0px 0px 5px black;
+  box-shadow: inset 0px 0px 20px -5px rgba(103, 44, 160, 0.5),
+    0px 0px 15px -2px #672ca0;
+}
+.layout-glass button.btn-cloak:hover:not([disabled]) {
+  color: white;
+  background: rgba(102, 54, 150, 0.5);
+  box-shadow: inset 0px 0px 20px 0px #672ca0, 0px 0px 10px -2px #672ca0;
+}
+.layout-glass button.btn-cloak:focus {
+  color: white;
+  box-shadow: inset 0px 0px 20px 0px #672ca0, 0px 0px 10px -2px #672ca0;
+}
+.layout-glass button.btn-cloak:active,
+.layout-glass button.btn-cloak.active {
+  color: white;
+  background: rgba(102, 54, 150, 0.3);
+  box-shadow: inset 0px 0px 20px 0px #331650, 0px 0px 10px -2px #672ca0;
+}
+.layout-glass button.btn-danger {
+  background-color: transparent;
+  background: rgba(150, 54, 54, 0.3);
+  border: solid 1px #963636;
+  color: white;
+  text-shadow: 0px 0px 5px black;
+  box-shadow: inset 0px 0px 20px -5px rgba(160, 44, 44, 0.5),
+    0px 0px 15px -2px #a02c2c;
+}
+.layout-glass button.btn-danger:hover:not([disabled]) {
+  color: white;
+  background: rgba(150, 54, 54, 0.5);
+  box-shadow: inset 0px 0px 20px 0px #a02c2c, 0px 0px 10px -2px #a02c2c;
+}
+.layout-glass button.btn-danger:focus {
+  color: white;
+  box-shadow: inset 0px 0px 20px 0px #a02c2c, 0px 0px 10px -2px #a02c2c;
+}
+.layout-glass button.btn-danger:active,
+.layout-glass button.btn-danger.active {
+  color: white;
+  background: rgba(150, 54, 54, 0.3);
+  box-shadow: inset 0px 0px 20px 0px #501616, 0px 0px 10px -2px #a02c2c;
+}

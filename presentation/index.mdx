@@ -1,0 +1,97 @@
+import { Cite } from "spectacle";
+import ShipLogo from "./components/shipLogo.js";
+import IncomingTransmission from "./components/IncomingTransmission";
+import ShipModel from "./components/ShipModel";
+import PlanetaryScan from "./components/PlanetaryScan";
+import { DarkSlide, CodeSlide } from "./slides";
+import RegularComponent from "./regular-component";
+
+<ShipLogo />
+
+---
+
+<ShipModel />
+
+---
+
+<IncomingTransmission />
+
+---
+
+<video
+  src={require("../assets/Promo.mp4")}
+  autoPlay
+  style={{
+    position: "fixed",
+    width: "100vw",
+    left: 0,
+    right: 0,
+    top: 0,
+    bottom: 0
+  }}
+/>
+
+---
+
+<PlanetaryScan />
+
+---
+
+<video
+  src={require("../assets/Space Center Map.mov")}
+  controls
+  style={{
+    position: "fixed",
+    height: "100vh",
+    left: "12%",
+    right: "12%",
+    top: 0,
+    bottom: 0
+  }}
+/>
+
+---
+
+<img
+  src={require("../assets/flight director.jpg")}
+  style={{
+    position: "fixed",
+    height: "100vh",
+    left: "5%",
+    right: "12%",
+    top: 0,
+    bottom: 0
+  }}
+/>
+
+---
+
+<img
+  src={require("../assets/flight director annotated.jpg")}
+  style={{
+    position: "fixed",
+    height: "100vh",
+    left: "5%",
+    right: "12%",
+    top: 0,
+    bottom: 0
+  }}
+/>
+
+---
+
+> Example Quote
+
+<Cite>Author</Cite>
+
+---
+
+export default CodeSlide;
+
+```javascript
+class SuperCoolComponent extends React.Component {
+  render() {
+    return <p>code slide works in markdown too whaaaaat</p>;
+  }
+}
+```
