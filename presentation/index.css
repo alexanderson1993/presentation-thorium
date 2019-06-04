@@ -139,19 +139,14 @@
   top: 54vh;
   z-index: -50;
 }
-.layout-glass .color-image {
-  width: 100vw;
-  height: 100vh;
-  top: 0;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  pointer-events: none;
-  position: fixed;
-  mix-blend-mode: screen;
-  z-index: -10;
-  background-size: cover;
+.layout-glass {
   background: linear-gradient(135deg, #000000 20%, #001d5c 53%, #000000 80%);
+}
+.layout-glass.alert-color-1 {
+  background: linear-gradient(135deg, #000000 20%, #5c0000 53%, #000000 80%);
+}
+.layout-glass.alert-color-1 video#frame-bg {
+  filter: hue-rotate(120deg);
 }
 .layout-glass .stationName-graphic {
   background-image: url(./StationName.png);

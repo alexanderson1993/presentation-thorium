@@ -3,7 +3,9 @@ import ShipLogo from "./components/shipLogo.js";
 import IncomingTransmission from "./components/IncomingTransmission";
 import ShipModel from "./components/ShipModel";
 import PlanetaryScan from "./components/PlanetaryScan";
-import { DarkSlide, CodeSlide } from "./slides";
+import BadGuySurround from "./components/BadGuySurround";
+import BadGuyHologram from "./components/BadGuyHologram";
+import { DarkSlide, CodeSlide, RedAlertSlide, BlueAlertSlide } from "./slides";
 import RegularComponent from "./regular-component";
 
 <ShipLogo />
@@ -11,6 +13,22 @@ import RegularComponent from "./regular-component";
 ---
 
 <ShipModel />
+
+---
+
+<img
+  src={require("../assets/crew.jpg")}
+  style={{
+    position: "fixed",
+    height: "100vh",
+    width: "100vw",
+    objectFit: "contain",
+    top: 0,
+    bottom: 0,
+    left: 0,
+    right: 0
+  }}
+/>
 
 ---
 
@@ -33,6 +51,89 @@ import RegularComponent from "./regular-component";
 
 ---
 
+export default RedAlertSlide;
+
+<span style={{ fontSize: "30vh" }}>😱</span>
+
+---
+
+export default RedAlertSlide;
+
+<BadGuySurround />
+
+---
+
+export default RedAlertSlide;
+
+<span style={{ fontSize: "30vh" }}>🤔</span>
+
+---
+
+export default RedAlertSlide;
+
+<span style={{ fontSize: "30vh" }}>🏃‍♀️</span>
+
+---
+
+export default RedAlertSlide;
+
+<span style={{ fontSize: "30vh" }}>👊</span>
+
+---
+
+export default RedAlertSlide;
+
+<div style={{ fontSize: "20vh" }}>💡</div>
+<div style={{ fontSize: "20vh" }}>😃</div>
+
+---
+
+<img src={require("../assets/probe.svg")} style={{ height: "50vh" }} />
+
+Defense Probe
+
+---
+
+<img src={require("../assets/hologram.png")} style={{ height: "50vh" }} />
+
+Hologram Projector Package
+
+---
+
+<BadGuyHologram />
+
+---
+
+<span style={{ fontSize: "30vh" }}>🧷</span>
+
+Safety Protocols
+
+---
+
+<video
+  src={require("../assets/Ship Explode.mp4")}
+  autoPlay
+  muted
+  style={{
+    position: "fixed",
+    height: "100vh",
+    width: "100vw",
+    objectFit: "contain",
+    left: "0",
+    right: "0",
+    top: 0,
+    bottom: 0
+  }}
+/>
+
+---
+
+export default BlueAlertSlide;
+
+<span style={{ fontSize: "30vh" }}>🏆</span>
+
+---
+
 <PlanetaryScan />
 
 ---
@@ -49,6 +150,10 @@ import RegularComponent from "./regular-component";
     bottom: 0
   }}
 />
+
+---
+
+# The Flight Director & Control Room
 
 ---
 

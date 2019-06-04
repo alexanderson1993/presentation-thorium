@@ -1,8 +1,9 @@
-import React from 'react';
-import { Slide, Text, Heading } from 'spectacle';
-import { MDXProvider } from '@mdx-js/tag'
-import components from './components';
-import theme from './theme';
+import React from "react";
+import { Slide, Text, Heading } from "spectacle";
+import { MDXProvider } from "@mdx-js/tag";
+import components from "./components";
+import theme from "./theme";
+import { AlertContext } from "./layout";
 
 // DEFAULT LAYOUT
 
@@ -16,13 +17,33 @@ export const DefaultSlide = ({ children, ...rest }) => (
 
 const darkComponents = {
   ...components,
-  h2: ({ children }) => <Heading size={2} textColor={theme.screen.colors.quaternary}>{children}</Heading>,
-  h3: ({ children }) => <Heading size={3} textColor={theme.screen.colors.quaternary}>{children}</Heading>,
-  h4: ({ children }) => <Heading size={4} textColor={theme.screen.colors.quaternary}>{children}</Heading>,
-  h5: ({ children }) => <Heading size={5} textColor={theme.screen.colors.quaternary}>{children}</Heading>,
-  h6: ({ children }) => <Heading size={6} textColor={theme.screen.colors.quaternary}>{children}</Heading>,
+  h2: ({ children }) => (
+    <Heading size={2} textColor={theme.screen.colors.quaternary}>
+      {children}
+    </Heading>
+  ),
+  h3: ({ children }) => (
+    <Heading size={3} textColor={theme.screen.colors.quaternary}>
+      {children}
+    </Heading>
+  ),
+  h4: ({ children }) => (
+    <Heading size={4} textColor={theme.screen.colors.quaternary}>
+      {children}
+    </Heading>
+  ),
+  h5: ({ children }) => (
+    <Heading size={5} textColor={theme.screen.colors.quaternary}>
+      {children}
+    </Heading>
+  ),
+  h6: ({ children }) => (
+    <Heading size={6} textColor={theme.screen.colors.quaternary}>
+      {children}
+    </Heading>
+  ),
   p: ({ children }) => <Text textColor="white">{children}</Text>
-}
+};
 
 export const DarkSlide = ({ children, ...rest }) => (
   <Slide bgColor="black" {...rest}>
@@ -37,3 +58,29 @@ export const CodeSlide = ({ children, ...rest }) => (
     <MDXProvider components={components}>{children}</MDXProvider>
   </Slide>
 );
+export const RedAlertSlide = ({ children, ...rest }) => {
+  const { alertColor, setAlertColor } = React.useContext(AlertContext);
+  React.useEffect(() => {
+    if (alertColor === "5") {
+      setAlertColor("1");
+    }
+  }, [alertColor]);
+  return (
+    <Slide bgColor="#1d1f21" {...rest}>
+      <MDXProvider components={components}>{children}</MDXProvider>
+    </Slide>
+  );
+};
+export const BlueAlertSlide = ({ children, ...rest }) => {
+  const { alertColor, setAlertColor } = React.useContext(AlertContext);
+  React.useEffect(() => {
+    if (alertColor === "1") {
+      setAlertColor("5");
+    }
+  }, [alertColor]);
+  return (
+    <Slide bgColor="#1d1f21" {...rest}>
+      <MDXProvider components={components}>{children}</MDXProvider>
+    </Slide>
+  );
+};
