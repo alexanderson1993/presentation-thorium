@@ -1,4 +1,4 @@
-import { Cite } from "spectacle";
+import { Cite, Notes, Appear } from "spectacle";
 import ShipLogo from "./components/shipLogo.js";
 import IncomingTransmission from "./components/IncomingTransmission";
 import ShipModel from "./components/ShipModel";
@@ -15,6 +15,11 @@ import RegularComponent from "./regular-component";
 <ShipModel />
 
 ---
+
+<Notes>
+  This is your crew. They may look like 5th and 6th graders, but they have been
+  hardened through innate determinism and minutes of training.
+</Notes>
 
 <img
   src={require("../assets/crew.jpg")}
@@ -162,6 +167,12 @@ export default BlueAlertSlide;
 
 ---
 
+<span style={{ fontSize: "30vh" }}>🙋‍♀️</span>
+
+Who has been to the Space Center?
+
+---
+
 <PlanetaryScan />
 
 ---
@@ -217,18 +228,62 @@ export default BlueAlertSlide;
 
 ---
 
-> Example Quote
-
-<Cite>Author</Cite>
+<img src={require("../assets/hypercard.png")} />
 
 ---
 
-export default CodeSlide;
+<img
+  src={require("../assets/hypercard-screenshot.jpg")}
+  style={{ height: "70vh" }}
+/>
 
-```javascript
-class SuperCoolComponent extends React.Component {
-  render() {
-    return <p>code slide works in markdown too whaaaaat</p>;
-  }
-}
-```
+<Notes>
+  HyperCard was peer-to-peer over AppleTalk. State was shared between the peers,
+  and it was easy to get out of sync. It wasn't very powerful or expressive, but
+  got the job done and was easy to learn.
+</Notes>
+
+---
+
+<img src={require("../assets/livecode.png")} />
+
+---
+
+<img src={require("../assets/livecode-screenshot.jpg")} />
+
+<Notes>
+  LiveCode was fancier than Hypercard, with animations, full-color graphics, and
+  TCP/IP for networking. Still easy to learn, but also not super expressive.
+</Notes>
+
+---
+
+# Lessons Learned: Part 1
+
+- Simple can get the job done
+- Learnable > Powerful
+
+---
+
+> You don't know what you don't know until you know better.
+
+<Cite>Me</Cite>
+
+---
+
+# Next Generation of Controls
+
+<img src={require("../assets/tng.webp")} />
+
+<Notes>
+  While HyperCard and LiveCode served their purpose well, it wasn't enough. More
+  simulators were being built, each needing a new, custom set of controls.
+  Wouldn't it be nice it we could compose cards together, customized for each
+  ship? Wouldn't it be nice if we could centralize data so it didn't get out of
+  sync? Wouldn't it be nice if we could offload some of the Flight Directors job
+  to the controls so she can focus on giving her crew a great experience? Long
+  Duration Missions are becoming a thing. Wouldn't it be nice if we could save
+  the state of flights so we can go back to them at a later date?
+</Notes>
+
+---

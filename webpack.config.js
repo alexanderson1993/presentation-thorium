@@ -67,6 +67,11 @@ module.exports = {
         include: path.join(__dirname, "assets")
       },
       {
+        test: /\.webp$/,
+        loader: "url-loader?mimetype=image/webp",
+        include: path.join(__dirname, "assets")
+      },
+      {
         test: /\.(mp4|mov|obj)$/,
         loader: "file-loader",
         include: path.join(__dirname, "assets")
