@@ -12,6 +12,9 @@ li {
   font-size: 4rem !important;
   line-height: 2;
 }
+blockquote p {
+  line-height: 1.5;
+}
 .layout-glass {
   background-color: black;
   position: fixed;
