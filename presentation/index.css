@@ -7,7 +7,9 @@
 .card-area div {
   background-color: transparent !important;
 }
-
+a {
+  color: #be51ff;
+}
 li {
   font-size: 4rem !important;
   line-height: 2;

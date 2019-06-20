@@ -384,9 +384,11 @@ Killed by Committee
 
 ---
 
-- Working in a familiar domain
-- Developer experience
-- Maintain Momentum. One commit a day
+<ul style={{ marginLeft: "-10vw", width: "80vw", textAlign: "left" }}>
+  <li>Working in a familiar domain</li>
+  <li>Friendly Developer experience</li>
+  <li>Maintain Momentum. One commit a day</li>
+</ul>
 
 ---
 
@@ -430,7 +432,9 @@ well-defined domain is the best way to do it.
 
 # API Archeology
 
-## HOC ➡ Render Props ➡ Hooks ➡ Suspense
+<div style={{ marginTop: "60px", marginLeft: "-15vw", width: "80vw" }}>
+  <h2>HOC ➡ Render Props ➡ Hooks ➡ Suspense</h2>
+</div>
 
 <Notes>
   Being a 3-year old project on the cutting edge means I've seen a lot of
@@ -457,13 +461,85 @@ well-defined domain is the best way to do it.
 
 # Step 4: Accountability
 
+<Notes>
+  We are accountable to a lot of people. Our bosses, our customers, our
+  families, ourselves. Accountability helps us acomplish the things that we want
+  to do. It gives us reason and purpose for making what we make, and can help us
+  change course when we go the wrong way.
+</Notes>
+
 ---
 
-- Open Source
-- Soliciting Feedback - Issue Tracker
-- Community & Discord
-- Advisory Board
+# Open Source
+
+## [https://github.com/thorium-sim](https://github.com/thorium-sim)
+
+<Notes>
+  All of my code is available online. Anyone can see it, comment on it, change
+  it, etc. It's learning in the open.
+</Notes>
 
 ---
 
-# What Surprised Me
+<div style={{ display: "flex", justifyContent:"space-between" }}>
+  <div>
+    <h1>Soliciting Feedback</h1>
+    <h2>Issue Tracker</h2>
+  </div>
+  <img src={require("../assets/probe.svg")} style={{ height: "50vh" }} />
+
+</div>
+  Be sure to change this to the issue tracker image
+
+---
+
+# Community & Discord
+
+<br />
+<img src={require("../assets/discord.png")} style={{ height: "20vh" }} />
+
+---
+
+# Advisory Board
+
+---
+
+# Family
+
+<img src={require("../assets/testFlight.jpeg")} style={{ height: "60vh" }} />
+
+---
+
+# Future Plans
+
+<br />
+ 
+Or what I would do if I did it all over again
+
+<Notes>
+  {`
+	1. Use TypeScript
+	2. Use the latest features of all the frameworks - hooks, suspense, etc.
+	3. Use CSS-in-JS so the CSS isn’t a total nightmare (it’s not too bad, since it’s all scoped to cards, but there are still collisions sometimes that cause problems)
+	4. More carefully design the GraphQL schema so it’s consistent.
+	5. Make sure subscriptions are more atomic and scoped to just what the subscriber wants (there are currently a LOT of leaky subscriptions)
+	6. Do internationalization from the get-go
+	7. Do a11y from the get-go
+	8. Use a more proper database. My JSON dump works for most peeps, but Ryan Anderson has a MASSIVE snapshot, and his CPU spikes hardcore every time it writes.
+	9. Simplify things substantially based on how users actually use Thorium. More sensible defaults, less enterprise-y, less configuration
+  10. Write Tests`}
+</Notes>
+
+---
+
+<div style={{ display: "flex", justifyContent:"space-between", alignItems:"center", marginLeft:"-10vw", width:"80vw" }}>
+  <div>
+    <h1>Thanks!</h1>
+    <h2><a href="https://thoriumsim.com">https://ThoriumSim.com</a></h2>
+    <h2><a href="https://twitter.com/ralex1993">@ralex1993</a></h2>
+  </div>
+  <img src={require("../assets/hero.jpg")} style={{ height: "70vh", width:"40vw", objectFit:"cover" }} />
+
+</div>
+
+---
