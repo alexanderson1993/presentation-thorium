@@ -163,6 +163,18 @@ export default BlueAlertSlide;
 
 ---
 
+# WDD 🤔
+
+Wonder-driven Development
+
+> Education: the freeing of the mind through the discipline of wonder
+
+<Cite>Mortimer Adler</Cite>
+
+<Notes>This is characterized by the question, "I wonder if...?"</Notes>
+
+---
+
 # Space Centers
 
 ---
@@ -187,6 +199,26 @@ Who has been to the Space Center?
     right: "12%",
     top: 0,
     bottom: 0
+  }}
+/>
+
+---
+
+# The Crew
+
+---
+
+<img
+  src={require("../assets/crew.jpg")}
+  style={{
+    position: "fixed",
+    height: "100vh",
+    width: "100vw",
+    objectFit: "contain",
+    top: 0,
+    bottom: 0,
+    left: 0,
+    right: 0
   }}
 />
 
@@ -297,35 +329,9 @@ Since the programs are only local to the computers which run them, and each simu
 
 ---
 
-# Building Software Projects
-
----
-
-<div style={{ display: "flex", fontSize:50 }}>
-  <div style={{flex:1, display:"flex", flexDirection:"column", justifyContent: "center", alignItems:'center'}}>
-  <span style={{fontSize:100}}>👀</span>
-  <span>Vision</span>
-  </div>
-  <div style={{flex:1, display:"flex", flexDirection:"column", justifyContent: "center", alignItems:'center'}}>
-  <span style={{fontSize:100}}>🥅</span>
-  <span>Goals</span>
-  </div>
-  <div style={{flex:1, display:"flex", flexDirection:"column", justifyContent: "center", alignItems:'center'}}>
-  <span style={{fontSize:100}}>📒</span>
-  <span>Plans</span>
-  </div>
-  <div style={{flex:1, display:"flex", flexDirection:"column", justifyContent: "center", alignItems:'center'}}>
-  <span style={{fontSize:100}}>📈</span>
-  <span>Accountability</span>
-  </div>
-
-  </div>
-
----
-
 <span style={{ fontSize: "120px" }}>👀</span>
 
-# Step 1: Vision
+# Vision
 
 ---
 
@@ -341,20 +347,19 @@ Since the programs are only local to the computers which run them, and each simu
 
 <Cite>Me</Cite>
 
+<Notes>
+ Remember back to the hologram probe. That gambit was enabled through the freedom and flexibility afforded by the simulator controls.
+ I don't just want the flight director to be free to do surprising things - the crew should be able to surprise the flight director sometimes too.
+ </Notes>
 ---
 
 <span style={{ fontSize: "120px" }}>🥅</span>
 
-# Step 2: Goals
-
----
+# Constraints
 
 <span style={{ fontSize: "80px" }}>MoSCoW</span>
 
-- Must have
-- Should have
-- Could be nice to have
-- Won't have
+<Notes>- Must have - Should have - Could be nice to have - Won't have</Notes>
 
 ---
 
@@ -363,6 +368,21 @@ Since the programs are only local to the computers which run them, and each simu
 - Cross-platform
 - Fast Latency
 - Configurable
+
+---
+
+# Should Have
+
+- Portable
+- Easy to use
+- Familiar
+
+---
+
+# Could be Nice to have
+
+- Easy dev onboarding
+- Wonder-Driven Development
 
 ---
 
@@ -405,7 +425,7 @@ Killed by Committee
 
 <span style={{ fontSize: "120px" }}>📒</span>
 
-# Step 3: Plan
+# Plan For Success
 
 ---
 
@@ -426,7 +446,8 @@ Killed by Committee
 <Notes>
   Without a good developer experience, coming to work on the project is a real
   drag. You never want to do anything with it. The tools you choose to use will
-  strongly affect your developer experience.
+  strongly affect your developer experience. Elixer, Rethink, and Docker would
+  be cool, but
 </Notes>
 
 ---
@@ -484,7 +505,7 @@ well-defined domain is the best way to do it.
 
 <span style={{ fontSize: "120px" }}>📈</span>
 
-# Step 4: Accountability
+# Staying Accountable
 
 <Notes>
   We are accountable to a lot of people. Our bosses, our customers, our
@@ -546,17 +567,19 @@ well-defined domain is the best way to do it.
 Or what I would do if I did it all over again
 
 <Notes>
-  {`
-	1. Use TypeScript
-	2. Use the latest features of all the frameworks - hooks, suspense, etc.
-	3. Use CSS-in-JS so the CSS isn’t a total nightmare (it’s not too bad, since it’s all scoped to cards, but there are still collisions sometimes that cause problems)
-	4. More carefully design the GraphQL schema so it’s consistent.
-	5. Make sure subscriptions are more atomic and scoped to just what the subscriber wants (there are currently a LOT of leaky subscriptions)
-	6. Do internationalization from the get-go
-	7. Do a11y from the get-go
-	8. Use a more proper database. My JSON dump works for most peeps, but Ryan Anderson has a MASSIVE snapshot, and his CPU spikes hardcore every time it writes.
-	9. Simplify things substantially based on how users actually use Thorium. More sensible defaults, less enterprise-y, less configuration
-  10. Write Tests`}
+I wrote a list of 10 things that I would do differently if I did it all over again. I'm going to revisit them in 3 years and see how many stand the tests of time.
+
+    1. Use TypeScript
+    2. Use the latest features of all the frameworks - hooks, suspense, etc.
+    3. Use CSS-in-JS so the CSS isn’t a total nightmare (it’s not too bad, since it’s all scoped to cards, but there are still collisions sometimes that cause problems)
+    4. More carefully design the GraphQL schema so it’s consistent.
+    5. Make sure subscriptions are more atomic and scoped to just what the subscriber wants (there are currently a LOT of leaky subscriptions)
+    6. Do internationalization from the get-go
+    7. Do a11y from the get-go
+    8. Use a more proper database. My JSON dump works for most peeps, but Ryan Anderson has a MASSIVE snapshot, and his CPU spikes hardcore every time it writes.
+    9. Simplify things substantially based on how users actually use Thorium. More sensible defaults, less enterprise-y, less configuration
+    10. Write Tests
+
 </Notes>
 
 ---

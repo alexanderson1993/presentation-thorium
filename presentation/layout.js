@@ -8,7 +8,8 @@ const Layout = ({ children }) => {
     <div className={`layout-glass alert-color-${alertColor}`}>
       <div className="frame-text">
         <h1 className="simulator-name">USS Voyager</h1>
-        <h2 className="station-name">React Rally</h2>
+        <h2 className="station-name">Avocode</h2>
+        {/* <h2 className="station-name">React Rally</h2> */}
         <h2 className="login-name">@ralex1993</h2>
       </div>
       <div className="card-frame">
