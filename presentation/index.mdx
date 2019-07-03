@@ -39,6 +39,9 @@ import RegularComponent from "./regular-component";
 
 <IncomingTransmission />
 
+<Notes>
+As you are out in deep space, you recieve a threatening transmission from an alien ship.
+</Notes>
 ---
 
 <video
@@ -150,16 +153,9 @@ export default BlueAlertSlide;
 
 ---
 
-<ShipLogo />
+> Education: the freeing of the mind through the discipline of wonder
 
-# Thorium
-
----
-
-- What
-- How
-- Why
-- Lessons Learned
+<Cite>Mortimer Adler</Cite>
 
 ---
 
@@ -167,11 +163,13 @@ export default BlueAlertSlide;
 
 Wonder-driven Development
 
-> Education: the freeing of the mind through the discipline of wonder
-
-<Cite>Mortimer Adler</Cite>
-
 <Notes>This is characterized by the question, "I wonder if...?"</Notes>
+
+---
+
+<ShipLogo />
+
+# Thorium
 
 ---
 
@@ -260,85 +258,20 @@ Who has been to the Space Center?
 
 ---
 
-<img src={require("../assets/hypercard.png")} />
+<ShipLogo />
+
+# Thorium
 
 ---
 
-<img
-  src={require("../assets/hypercard-screenshot.jpg")}
-  style={{ height: "70vh" }}
-/>
+# Open Source
+
+## [https://github.com/thorium-sim](https://github.com/thorium-sim)
 
 <Notes>
-  HyperCard was peer-to-peer over AppleTalk. State was shared between the peers,
-  and it was easy to get out of sync. It wasn't very powerful or expressive, but
-  got the job done and was easy to learn.
+  All of my code is available online. Anyone can see it, comment on it, change
+  it, etc. It's learning in the open.
 </Notes>
-
----
-
-<img src={require("../assets/livecode.png")} />
-
----
-
-<img src={require("../assets/livecode-screenshot.jpg")} />
-
-<Notes>
-  LiveCode was fancier than Hypercard, with animations, full-color graphics, and
-  TCP/IP for networking. Still easy to learn, but also not super expressive.
-</Notes>
-
----
-
-# Lessons Learned
-
-- Simple can get the job done
-- Learnable > Powerful
-
----
-
-> You don't know what you don't know until you know better.
-
-<Cite>Me</Cite>
-
----
-
-- Hard to distribute fixes
-- Not easily customized
-- Fragile, not portable
-
-<Notes>
-Since the programs are only local to the computers which run them, and each simulator has custom controls, sharing improvements and bug fixes between the sets of controls is really hard. Changing the controls between simulators is a pain. And the simulator's controls are set up to work in their specific environment, but it's hard to set it up anywhere else. Much better to have one set of controls which can do everything.
-</Notes>
----
-
-# Next Generation of Controls
-
-<img src={require("../assets/tng.webp")} />
-
-<Notes>
-  While HyperCard and LiveCode served their purpose well, it wasn't enough. More
-  simulators were being built, each needing a new, custom set of controls.
-  Wouldn't it be nice it we could compose cards together, customized for each
-  ship? Wouldn't it be nice if we could centralize data so it didn't get out of
-  sync? Wouldn't it be nice if we could offload some of the Flight Directors job
-  to the controls so she can focus on giving her crew a great experience? Long
-  Duration Missions are becoming a thing. Wouldn't it be nice if we could save
-  the state of flights so we can go back to them at a later date?
-</Notes>
-
----
-
-<span style={{ fontSize: "120px" }}>👀</span>
-
-# Vision
-
----
-
-> When I started Microsoft , we had big dreams. We talked about a computer on
-> every desk and in every home.
-
-<Cite>Bill Gates</Cite>
 
 ---
 
@@ -348,98 +281,10 @@ Since the programs are only local to the computers which run them, and each simu
 <Cite>Me</Cite>
 
 <Notes>
- Remember back to the hologram probe. That gambit was enabled through the freedom and flexibility afforded by the simulator controls.
- I don't just want the flight director to be free to do surprising things - the crew should be able to surprise the flight director sometimes too.
- </Notes>
----
-
-<span style={{ fontSize: "120px" }}>🥅</span>
-
-# Constraints
-
-<span style={{ fontSize: "80px" }}>MoSCoW</span>
-
-<Notes>- Must have - Should have - Could be nice to have - Won't have</Notes>
-
----
-
-# Must Have
-
-- Cross-platform
-- Fast Latency
-- Configurable
-
----
-
-# Should Have
-
-- Portable
-- Easy to use
-- Familiar
-
----
-
-# Could be Nice to have
-
-- Easy dev onboarding
-- Wonder-Driven Development
-
----
-
-# Won't Have
-
-- Native Controls
-- Responsive
-- Playable over the Internet
-- Beurocracy
-
----
-
-<span style={{ fontSize: "120px" }}>☠️</span>
-
-# Flint
-
-Killed by Committee
-
-<Notes>
-  Flint was my last spaceship controls project, and it was good. It was web
-  based, built with Meteor JS. But between the incredible ambitions and the rule
-  by committee, it was never able to come to a completed state. Instead of
-  making it usable, we got buried in the details, so it never saw the light of
-  day. But I did learn some important lessons.
-</Notes>
-
----
-
-<img src={require("../assets/kite.png")} />
-
-## Tethering Constraints
-
-<Notes>
-  Like a kite string, constraints in our projects tether us to what we actually
-  want and allow us to make continuous progress instead of allowing rampant
-  changes, adjustments, suggestions, etc.
-</Notes>
-
----
-
-<span style={{ fontSize: "120px" }}>📒</span>
-
-# Plan For Success
-
----
-
-<ul style={{ marginLeft: "-10vw", width: "80vw", textAlign: "left" }}>
-  <li>Working in a familiar domain</li>
-  <li>Friendly Developer experience</li>
-  <li>Maintain Momentum. One commit a day</li>
-</ul>
-
-<Notes>
-  I'm a firm believer that good developer experience will yield good user
-  experience. I think it's possible to go overboard, but thats why it is
-  important to understand your constraints and select tools that can give you
-  both.
+  Remember back to the hologram probe. That gambit was enabled through the
+  freedom and flexibility afforded by the simulator controls. I don't just want
+  the flight director to be free to do surprising things - the crew should be
+  able to surprise the flight director sometimes too.
 </Notes>
 
 ---
@@ -451,10 +296,16 @@ Killed by Committee
 - GraphQL & Apollo
 
 <Notes>
-  Without a good developer experience, coming to work on the project is a real
-  drag. You never want to do anything with it. The tools you choose to use will
-  strongly affect your developer experience. Elixer, Rethink, and Docker would
-  be cool, but would they match my constraints?
+  I'm a firm believer that good developer experience will yield good user
+  experience. I think it's possible to go overboard, but thats why it is
+  important to understand your constraints and select tools that can give you
+  both.
+
+Without a good developer experience, coming to work on the project is a real
+drag. You never want to do anything with it. The tools you choose to use will
+strongly affect your developer experience. Elixer, Rethink, and Docker would be
+cool, but would they match my constraints?
+
 </Notes>
 
 ---
@@ -503,35 +354,51 @@ well-defined domain is the best way to do it.
 
 # DEMO
 
+## I Wonder If...
+
+---
+
+## Dynamic Crew Stations
+
+---
+
+## Dynamic Core Components
+
+---
+
+# Main Viewscreen
+
+---
+
+# Mission Timeline & Mutation Macros
+
 <Notes>
-  Show the Transporters screen to demo Flight Director Interaction Show the
-  thrusters screen to show interactive 3D models
+  I use an introspection query to figure out what GraphQL mutations are able to
+  be used as timeline actions, and then set up special configuration for them if
+  necessary
 </Notes>
 
 ---
 
-<span style={{ fontSize: "120px" }}>📈</span>
+# Tracking open web browser tabs
 
-# Staying Accountable
+## Multiple clients on one computer
 
 <Notes>
-  We are accountable to a lot of people. Our bosses, our customers, our
-  families, ourselves. Accountability helps us acomplish the things that we want
-  to do. It gives us reason and purpose for making what we make, and can help us
-  change course when we go the wrong way.
-
+  Since clients store their client ID in localstorage, it's not possible to have
+  multiple clients open at the same time... unless I store a list of clients in
+  localstorage
 </Notes>
 
 ---
 
-# Open Source
+# Subscription-based Animations
 
-## [https://github.com/thorium-sim](https://github.com/thorium-sim)
+<Notes>Server animated contacts at 20fps and LERP on the client</Notes>
 
-<Notes>
-  All of my code is available online. Anyone can see it, comment on it, change
-  it, etc. It's learning in the open.
-</Notes>
+---
+
+# Node Diagram Configuration
 
 ---
 
@@ -549,38 +416,6 @@ well-defined domain is the best way to do it.
   to change and ideas for improvement. Staying on top of those, finding time to
   work on them, while prioritizing the most important is really tricky.
 </Notes>
-
----
-
-# Community & Discord
-
-<br />
-<img src={require("../assets/discord.png")} style={{ height: "20vh" }} />
-
-<Notes>
-  I saw people helping each other, sharing their successes, coming up with new
-  ideas, and connecting with other communities.
-</Notes>
-
----
-
-# Advisory Board
-
-<img
-  src={require("../assets/advisory-board.jpeg")}
-  style={{ height: "60vh" }}
-/>
-
-<Notes>
-  This advisory board is the only time the Space Center directors all get
-  together to talk shop. We share ideas and foster collaboration.
-</Notes>
-
----
-
-# Family
-
-<img src={require("../assets/testFlight.jpeg")} style={{ height: "60vh" }} />
 
 ---
 
@@ -615,25 +450,6 @@ time.
 # Wonder-driven Development
 
 ## I wonder if...
-
-<Notes>
-  - Subscription-based state management 
-  
-  - Tracking open web browser tabs
-
-- Node-diagram based configuration
-
-- Dynamic station configuration - showing a component based on data from the
-  server
-
-- Mosaic-based dynamic core
-
-- Timeline configuration
-
-
-    - Dynamic viewscreen & auto-viewscreen
-
-</Notes>
 
 ---
 
