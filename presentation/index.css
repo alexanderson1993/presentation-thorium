@@ -36,6 +36,8 @@ blockquote p {
 .layout-glass .card-area h6 {
   font-family: "Saira", sans-serif !important;
   color: #eee !important;
+  margin-bottom: 5rem;
+  text-align: center;
 }
 .layout-glass .frame-text h1,
 .layout-glass .frame-text h2 {
@@ -114,6 +116,9 @@ blockquote p {
   left: 10vw;
   top: 19vh;
   z-index: 100000;
+}
+.card-area .spectacle-content.spectacle-content {
+  max-width: 88vw;
 }
 .layout-glass video#frame-bg {
   top: 0;

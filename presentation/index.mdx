@@ -100,7 +100,7 @@ export default RedAlertSlide;
 
 <img src={require("../assets/probe.svg")} style={{ height: "50vh" }} />
 
-Defense Probe
+Science Probe
 
 ---
 
@@ -277,23 +277,8 @@ Who has been to the Space Center?
 
 ---
 
-> I want simulator controls that can do anything for anyone. Spaceships.
-> Submarines. Escape Rooms. Your only limit is your imagination.
+# Learning By Doing
 
-<Cite>Me</Cite>
-
-<Notes>
-  Remember back to the hologram probe. That gambit was enabled through the
-  freedom and flexibility afforded by the simulator controls. I don't just want
-  the flight director to be free to do surprising things - the crew should be
-  able to surprise the flight director sometimes too.
-</Notes>
-
----
-
-- <s>Elixer</s>
-- <s>RethinkDB</s>
-- <s>Docker</s>
 - React
 - GraphQL & Apollo
 
@@ -304,9 +289,7 @@ Who has been to the Space Center?
   both.
 
 Without a good developer experience, coming to work on the project is a real
-drag. You never want to do anything with it. The tools you choose to use will
-strongly affect your developer experience. Elixer, Rethink, and Docker would be
-cool, but would they match my constraints?
+drag. You never want to do anything with it.
 
 </Notes>
 
@@ -338,9 +321,7 @@ well-defined domain is the best way to do it.
 
 # API Archeology
 
-<div style={{ marginTop: "60px", marginLeft: "-15vw", width: "80vw" }}>
-  <h2>HOC ➡ Render Props ➡ Hooks ➡ Suspense</h2>
-</div>
+## HOC ➡ Render Props ➡ Hooks ➡ Suspense
 
 <Notes>
   Being a 3-year old project on the cutting edge means I've seen a lot of
@@ -362,9 +343,21 @@ well-defined domain is the best way to do it.
 
 ## Dynamic Crew Stations
 
+<Notes>
+  Create a unique client ID, Subscribe to changes to that client ID, render the
+  screen assigned to that station.
+</Notes>
+
 ---
 
-## Dynamic Core Components
+## Dynamic Control Grid
+
+<Notes>
+  Have a dynamic layout that I can easily change and adjust as necessary. Also
+  have the core feed which gives me actionable components based on things that
+  happen during the flight. Since it's just components, and they all load data
+  from the unified Apollo GraphQL cache, it's really easy to do.
+</Notes>
 
 ---
 
@@ -394,30 +387,127 @@ well-defined domain is the best way to do it.
 
 ---
 
-# Subscription-based Animations
-
-<Notes>Server animated contacts at 20fps and LERP on the client</Notes>
-
----
-
-# Node Diagram Configuration
-
----
-
-<div style={{ display: "flex", justifyContent:"space-between" }}>
-  <div>
-    <h1>Soliciting Feedback</h1>
-    <h2>Issue Tracker</h2>
-  </div>
-  <img src={require("../assets/issue-tracker.png")} style={{ height: "60vh" }} />
-
-</div>
+```JavaScript
+broadcastChannel.postMessage("clientPing");
+// Lets give a bit of time for the windows to get back
+setTimeout(() => {
+  if (clientId) {
+    return resolve(clientId);
+  }
+  for (let i = 0; i < clientList.length; i++) {
+    if (!windows.includes(clientList[i])) {
+      setClient(clientList[i]);
+      return resolve(clientId);
+    }
+  }
+  if (!clientId) {
+    setClient(randomWords(3).join("-"));
+    clientList.push(clientId);
+    localStorage.setItem(key, JSON.stringify(clientList));
+    return resolve(clientId);
+  }
+}, 500);
+```
 
 <Notes>
-  Releasing Thorium meant answering to customers, and they have a lot of things
-  to change and ideas for improvement. Staying on top of those, finding time to
-  work on them, while prioritizing the most important is really tricky.
+  I have a little Marco-polo session with the open tab, where a new tabs pings
+  other other tabs so it can find out which tab number it is. Then it grabs that
+  clientId from the localStorage array. If you know a better way, hit me up on
+  Twitter.
 </Notes>
+
+---
+
+# Subscription-based Animations
+
+<Notes>
+  Server animated contacts at 20fps and LERP on the client. This was just
+  playing around with Websockets, animation intervals, and different Linear
+  Interpolation methods.
+</Notes>
+
+---
+
+## Before
+
+```JavaScript
+
+export default function useInterpolate(inputs, interval) {
+  const [contacts, setContacts] = useState(inputs);
+  const endTime = useRef(Date.now() + interval);
+  const previousInputs = usePrevious(inputs);
+  const inputsRef = useRef(inputs);
+  useEffect(() => {
+    endTime.current = Date.now() + interval;
+    inputsRef.current = inputs;
+  }, [inputs, interval]);
+
+  useAnimationFrame(() => {
+    let t = Math.max(
+      0,
+      Math.min(1, Math.abs(1 - (endTime.current - Date.now()) / interval))
+    );
+    const contactIds = contacts.map(c => c.id);
+    const inputObj = inputsRef.current.reduce(
+      (acc, c) => ({ ...acc, [c.id]: c }),
+      {}
+    );
+    const previousInputObj = previousInputs.reduce(
+      (acc, c) => ({ ...acc, [c.id]: c }),
+      {}
+    );
+    const inputIds = Object.keys(inputObj);
+    const newContacts = inputsRef.current.filter(
+      ({ id }) => contactIds.indexOf(id) === -1
+    );
+    const filteredContacts = contacts
+      .filter(({ id }) => inputIds.indexOf(id) > -1)
+      .map(c => {
+        if (!previousInputObj[c.id] || !inputObj[c.id]) return null;
+        return {
+          ...c,
+          ...inputObj[c.id],
+          position: {
+            x: lerp(
+              previousInputObj[c.id].position.x,
+              inputObj[c.id].position.x,
+              t
+            ),
+            y: lerp(
+              previousInputObj[c.id].position.y,
+              inputObj[c.id].position.y,
+              t
+            )
+          }
+        };
+      })
+      .filter(Boolean);
+    setContacts(newContacts.concat(filteredContacts));
+  });
+  return contacts;
+}
+```
+
+---
+
+## After
+
+```CSS
+.moving-object {
+  transform: translate 50ms linear;
+}
+```
+
+<Notes>
+  As it turns out, CSS is way better at interpolating things than JavaScript
+</Notes>
+
+---
+
+# More Wonders
+
+- React Component Plugins with React.lazy
+- Patch-based GraphQL subscriptions
 
 ---
 
@@ -451,7 +541,7 @@ time.
 
 # Wonder-driven Development
 
-## I wonder if...
+> I wonder if...
 
 ---
 
