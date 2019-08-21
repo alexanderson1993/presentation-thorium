@@ -17,7 +17,6 @@
 .ShipLogo .logo {
   animation: spin 4s linear infinite;
   max-height: 50%;
-  width: 50%;
   object-fit: contain;
 }
 

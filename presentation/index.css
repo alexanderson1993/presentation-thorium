@@ -118,7 +118,7 @@ blockquote p {
   z-index: 100000;
 }
 .card-area .spectacle-content.spectacle-content {
-  max-width: 88vw;
+  max-width: 75vw;
 }
 .layout-glass video#frame-bg {
   top: 0;

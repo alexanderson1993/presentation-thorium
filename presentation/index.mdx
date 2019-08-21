@@ -45,12 +45,6 @@ export default RedAlertSlide;
 
 export default RedAlertSlide;
 
-<span style={{ fontSize: "30vh" }}>😱</span>
-
----
-
-export default RedAlertSlide;
-
 <IncomingTransmission />
 
 <Notes>
@@ -161,11 +155,18 @@ export default BlueAlertSlide;
 
 ---
 
-# WDD 🤔
+# Wonder-driven Development
 
-Wonder-driven Development
+## "I Wonder If..."
 
-<Notes>This is characterized by the question, "I wonder if...?"</Notes>
+<Notes>
+This is characterized by asking the question, "I wonder if...?" and then doing it.
+
+- Curiosity about things they don't understand
+- Passion for their work
+- Optimism, or the belief that they can find answers
+
+</Notes>
 
 ---
 
@@ -175,13 +176,34 @@ Wonder-driven Development
 
 ---
 
-# Space Centers
+# Learning By Doing
+
+- React
+- GraphQL & Apollo
+
+<Notes>
+I wondered if I could learn React and GraphQL while making these spaceship controls,
+and even wondered if it were possible. The only way for me to find out was to do it,
+so I started small, worked a bit every day, and eventually produced a completed product.
+
+What exactly do these spaceship controls entail?
+
+</Notes>
 
 ---
 
-<span style={{ fontSize: "30vh" }}>🙋‍♀️</span>
+# Open Source
 
-Who has been to the Space Center?
+## [https://github.com/thorium-sim](https://github.com/thorium-sim)
+
+<Notes>
+  All of my code is available online. Anyone can see it, comment on it, change
+  it, etc. It's learning in the open.
+</Notes>
+
+---
+
+# Space Centers
 
 ---
 
@@ -222,6 +244,12 @@ Who has been to the Space Center?
   }}
 />
 
+<Notes>
+  Thorium is a central server that browsers connect to. Each browser has a
+  client ID and can be assigned a crew station, like weapons, navigation, or
+  communication.
+</Notes>
+
 ---
 
 # The Flight Director & Control Room
@@ -254,6 +282,12 @@ Who has been to the Space Center?
   }}
 />
 
+<Notes>
+  The flight director also connects with a web browser. They use a special
+  control screen called "Core" which gives them at-a-glance access to the state
+  of the simulation and the ability to adjust anything as needed.
+</Notes>
+
 ---
 
 # Ship Controls
@@ -266,75 +300,6 @@ Who has been to the Space Center?
 
 ---
 
-# Open Source
-
-## [https://github.com/thorium-sim](https://github.com/thorium-sim)
-
-<Notes>
-  All of my code is available online. Anyone can see it, comment on it, change
-  it, etc. It's learning in the open.
-</Notes>
-
----
-
-# Learning By Doing
-
-- React
-- GraphQL & Apollo
-
-<Notes>
-  I'm a firm believer that good developer experience will yield good user
-  experience. I think it's possible to go overboard, but thats why it is
-  important to understand your constraints and select tools that can give you
-  both.
-
-Without a good developer experience, coming to work on the project is a real
-drag. You never want to do anything with it.
-
-</Notes>
-
----
-
-# I ♥ ⚛️
-
-> Learning @reactjs before fully understanding JavaScript fundamentals is a
-> great learning path. Learning React can make your JavaScript skills much
-> better than learning JavaScript alone.
-
-<Cite>Me</Cite>
-
-<Notes>
-  Always bet on React. I've been using it for 3 years, and it's only become more
-  joyful to use. Same with GraphQL. Both are excellent tools.
-
-The main reason I started working on Thorium was so I could learn React and
-GraphQL. Side projects are an awesome way to learn new things because they give
-you the chance to practice what you learn, to make mistakes, and to try new
-things in a safe environment.
-
-I believe that if you want to learn anything, using a side project with a
-well-defined domain is the best way to do it.
-
-</Notes>
-
----
-
-# API Archeology
-
-## HOC ➡ Render Props ➡ Hooks ➡ Suspense
-
-<Notes>
-  Being a 3-year old project on the cutting edge means I've seen a lot of
-  patterns come and go. Take Apollo's API for example - when I started, there
-  were only HOCs. Then the render prop components were added, and they're
-  awesome. Now there's a Hooks API, which is even nicer. Maybe by the time I
-  give this talk there will be a suspense API 🤞. Fortunately, it's all been
-  backwards compatible, but Thorium almost has paleontological layers showing
-  the trends as they evolve.
-</Notes>
-
----
-
 # DEMO
 
 ## I Wonder If...
@@ -342,6 +307,33 @@ well-defined domain is the best way to do it.
 ---
 
 ## Dynamic Crew Stations
+
+<Notes>
+  The first problem I have to solve is showing dynamic screens on the crew
+  stations. I wondered if I could control what is being shown on the client from
+  the server.
+</Notes>
+
+---
+
+```GraphQL
+ subscription ClientUpdate($clientId: ID!) {
+  clientChanged(client: $clientId) {
+    simulator {
+      id
+      name
+    }
+    station {
+      name
+        cards {
+          name
+          component
+          hidden
+        }
+      }
+    }
+  }
+```
 
 <Notes>
   Create a unique client ID, Subscribe to changes to that client ID, render the
@@ -353,15 +345,23 @@ well-defined domain is the best way to do it.
 ## Dynamic Control Grid
 
 <Notes>
-  Have a dynamic layout that I can easily change and adjust as necessary. Also
-  have the core feed which gives me actionable components based on things that
-  happen during the flight. Since it's just components, and they all load data
-  from the unified Apollo GraphQL cache, it's really easy to do.
+
+I wondered if I can dynamically layout core components that I can easily change
+and adjust as necessary. Also have the core feed which gives me actionable
+components based on things that happen during the flight. Since it's just
+components, and they all load data from the unified Apollo GraphQL cache, it's
+really easy to do.
+
 </Notes>
 
 ---
 
 # Main Viewscreen
+
+<Notes>
+  I wondered if the main viewscreen can be dynamically changed based on the
+  state of the simulator.
+</Notes>
 
 ---
 
@@ -508,6 +508,7 @@ export default function useInterpolate(inputs, interval) {
 
 - React Component Plugins with React.lazy
 - Patch-based GraphQL subscriptions
+- React renderer for DMX lighting
 
 ---
 
@@ -536,6 +537,15 @@ time.
     10. Write Tests
 
 </Notes>
+
+---
+
+# How do you wonder?
+
+- Have a crazy idea
+- Write it down
+- Think about it
+- Come back to it
 
 ---
 
