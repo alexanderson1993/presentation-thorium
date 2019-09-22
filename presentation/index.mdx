@@ -114,6 +114,10 @@ Safety Protocols
 
 ---
 
+<span style={{ fontSize: "30vh" }}>👍</span>
+
+---
+
 <video
   src={require("../assets/Ship Explode.mp4")}
   autoPlay
@@ -170,16 +174,53 @@ This is characterized by asking the question, "I wonder if...?" and then doing i
 
 ---
 
+<img
+  src={require("../assets/crew.jpg")}
+  style={{
+    position: "fixed",
+    height: "100vh",
+    width: "100vw",
+    objectFit: "contain",
+    top: 0,
+    bottom: 0,
+    left: 0,
+    right: 0
+  }}
+/>
+
+<Notes>
+
+These crew members come for 5th and 6th grade field trips, and the experience
+instills in them a sense of wonder. Many of them end up studying STEM topics as
+a result.
+
+</Notes>
+
+---
+
 <ShipLogo />
 
 # Thorium
 
+<Notes>
+To help facilitate these experiences, I built Thorium.
+
+Thorium is a central server that browsers connect to. Each browser has a client
+ID and can be assigned a crew station, like weapons, navigation, or
+communication.
+
+</Notes>
+
 ---
 
-# Learning By Doing
+# I wonder if...
 
-- React
-- GraphQL & Apollo
+<div
+  style={{ display: "flex", justifyContent: "space-around", minHeight: "30vh" }}
+>
+  <img src={require("../assets/react.svg")} style={{ width: "400px" }} />
+  <img src={require("../assets/graphql.svg")} style={{ width: "300px" }} />
+</div>
 
 <Notes>
 I wondered if I could learn React and GraphQL while making these spaceship controls,
@@ -211,19 +252,19 @@ What exactly do these spaceship controls entail?
 
 ---
 
-<video
-  src={require("../assets/Space Center Map.mov")}
-  controls
+<img
+  src={require("../assets/map.jpg")}
   style={{
     position: "fixed",
     height: "100vh",
-    left: "12%",
-    right: "12%",
+    width: "100vw",
+    objectFit: "contain",
     top: 0,
-    bottom: 0
+    bottom: 0,
+    left: 0,
+    right: 0
   }}
 />
-
 ---
 
 # The Crew
@@ -248,11 +289,18 @@ What exactly do these spaceship controls entail?
   Thorium is a central server that browsers connect to. Each browser has a
   client ID and can be assigned a crew station, like weapons, navigation, or
   communication.
+
+These crew members come for 5th and 6th grade field trips, and the experience
+instills in them a sense of wonder. Many of them end up studying STEM topics as
+a result.
+
 </Notes>
 
 ---
 
-# The Flight Director & Control Room
+# The Flight Director &
+
+# Control Room
 
 ---
 
@@ -328,7 +376,6 @@ What exactly do these spaceship controls entail?
         cards {
           name
           component
-          hidden
         }
       }
     }
@@ -339,6 +386,17 @@ What exactly do these spaceship controls entail?
   Create a unique client ID, Subscribe to changes to that client ID, render the
   screen assigned to that station.
 </Notes>
+
+---
+
+```JavaScript
+import * as Cards from './cards';
+
+function CardComponent({componentName,...props}) {
+  const Component = Cards[componentName];
+  return <Component {...props} />
+}
+```
 
 ---
 
@@ -365,55 +423,14 @@ really easy to do.
 
 ---
 
-# Mission Timeline & Mutation Macros
+# Mission Timeline &
+
+# Mutation Macros
 
 <Notes>
   I use an introspection query to figure out what GraphQL mutations are able to
   be used as timeline actions, and then set up special configuration for them if
   necessary
-</Notes>
-
----
-
-# Tracking open web browser tabs
-
-## Multiple clients on one computer
-
-<Notes>
-  Since clients store their client ID in localstorage, it's not possible to have
-  multiple clients open at the same time... unless I store a list of clients in
-  localstorage
-</Notes>
-
----
-
-```JavaScript
-broadcastChannel.postMessage("clientPing");
-// Lets give a bit of time for the windows to get back
-setTimeout(() => {
-  if (clientId) {
-    return resolve(clientId);
-  }
-  for (let i = 0; i < clientList.length; i++) {
-    if (!windows.includes(clientList[i])) {
-      setClient(clientList[i]);
-      return resolve(clientId);
-    }
-  }
-  if (!clientId) {
-    setClient(randomWords(3).join("-"));
-    clientList.push(clientId);
-    localStorage.setItem(key, JSON.stringify(clientList));
-    return resolve(clientId);
-  }
-}, 500);
-```
-
-<Notes>
-  I have a little Marco-polo session with the open tab, where a new tabs pings
-  other other tabs so it can find out which tab number it is. Then it grabs that
-  clientId from the localStorage array. If you know a better way, hit me up on
-  Twitter.
 </Notes>
 
 ---
@@ -431,8 +448,7 @@ setTimeout(() => {
 ## Before
 
 ```JavaScript
-
-export default function useInterpolate(inputs, interval) {
+function useInterpolate(inputs, interval) {
   const [contacts, setContacts] = useState(inputs);
   const endTime = useRef(Date.now() + interval);
   const previousInputs = usePrevious(inputs);
@@ -442,50 +458,20 @@ export default function useInterpolate(inputs, interval) {
     inputsRef.current = inputs;
   }, [inputs, interval]);
 
-  useAnimationFrame(() => {
-    let t = Math.max(
-      0,
-      Math.min(1, Math.abs(1 - (endTime.current - Date.now()) / interval))
-    );
-    const contactIds = contacts.map(c => c.id);
-    const inputObj = inputsRef.current.reduce(
-      (acc, c) => ({ ...acc, [c.id]: c }),
-      {}
-    );
-    const previousInputObj = previousInputs.reduce(
-      (acc, c) => ({ ...acc, [c.id]: c }),
-      {}
-    );
-    const inputIds = Object.keys(inputObj);
-    const newContacts = inputsRef.current.filter(
-      ({ id }) => contactIds.indexOf(id) === -1
-    );
-    const filteredContacts = contacts
-      .filter(({ id }) => inputIds.indexOf(id) > -1)
-      .map(c => {
-        if (!previousInputObj[c.id] || !inputObj[c.id]) return null;
-        return {
-          ...c,
-          ...inputObj[c.id],
-          position: {
-            x: lerp(
-              previousInputObj[c.id].position.x,
-              inputObj[c.id].position.x,
-              t
-            ),
-            y: lerp(
-              previousInputObj[c.id].position.y,
-              inputObj[c.id].position.y,
-              t
-            )
-          }
-        };
-      })
-      .filter(Boolean);
-    setContacts(newContacts.concat(filteredContacts));
-  });
-  return contacts;
-}
+useAnimationFrame(() => { let t = Math.max( 0, Math.min(1, Math.abs(1 -
+(endTime.current - Date.now()) / interval)) ); const contactIds = contacts.map(c
+=> c.id); const inputObj = inputsRef.current.reduce( (acc, c) => ({ ...acc,
+[c.id]: c }), {} ); const previousInputObj = previousInputs.reduce( (acc, c) =>
+({ ...acc, [c.id]: c }), {} ); const inputIds = Object.keys(inputObj); const
+newContacts = inputsRef.current.filter( ({ id }) => contactIds.indexOf(id) ===
+-1 ); const filteredContacts = contacts .filter(({ id }) =>
+inputIds.indexOf(id) > -1) .map(c => { if (!previousInputObj[c.id] ||
+!inputObj[c.id]) return null; return { ...c, ...inputObj[c.id], position: { x:
+lerp( previousInputObj[c.id].position.x, inputObj[c.id].position.x, t ), y:
+lerp( previousInputObj[c.id].position.y, inputObj[c.id].position.y, t ) } }; })
+.filter(Boolean); setContacts(newContacts.concat(filteredContacts)); }); return
+contacts; }
+
 ```
 
 ---
@@ -506,46 +492,16 @@ export default function useInterpolate(inputs, interval) {
 
 # More Wonders
 
-- React Component Plugins with React.lazy
-- Patch-based GraphQL subscriptions
-- React renderer for DMX lighting
+See [ralexanderson.com/blog](https://ralexanderson.com/blog) for more info
+
+<ul>
+  <li style={{ fontSize: "1px" }}>Tracking open web browser tabs</li>
+  <li style={{ fontSize: "1px" }}>React Component Plugins with React.lazy</li>
+  <li style={{ fontSize: "1px" }}>React renderer for DMX lighting</li>
+  <li style={{ fontSize: "1px" }}>Multi-channel web-audio</li>
+</ul>
 
 ---
-
-# Future Plans
-
-<br />
- 
-Or what I would do if I did it all over again
-
-<Notes>
-I would start with a partner or team. And I would think about making it more friendly to more users.
-
-I wrote a list of 10 things that I would do differently if I did it all over
-again. I'm going to revisit them in 3 years and see how many stand the tests of
-time.
-
-    1. Use TypeScript
-    2. Use the latest features of all the frameworks - hooks, suspense, etc.
-    3. Use CSS-in-JS so the CSS isn’t a total nightmare (it’s not too bad, since it’s all scoped to cards, but there are still collisions sometimes that cause problems)
-    4. More carefully design the GraphQL schema so it’s consistent.
-    5. Make sure subscriptions are more atomic and scoped to just what the subscriber wants (there are currently a LOT of leaky subscriptions)
-    6. Do internationalization from the get-go
-    7. Do a11y from the get-go
-    8. Use a more proper database. My JSON dump works for most peeps, but Ryan Anderson has a MASSIVE snapshot, and his CPU spikes hardcore every time it writes.
-    9. Simplify things substantially based on how users actually use Thorium. More sensible defaults, less enterprise-y, less configuration
-    10. Write Tests
-
-</Notes>
-
----
-
-# How do you wonder?
-
-- Have a crazy idea
-- Write it down
-- Think about it
-- Come back to it
 
 ---
 
