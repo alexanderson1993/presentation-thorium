@@ -198,52 +198,6 @@ a result.
 
 ---
 
-<ShipLogo />
-
-# Thorium
-
-<Notes>
-To help facilitate these experiences, I built Thorium.
-
-Thorium is a central server that browsers connect to. Each browser has a client
-ID and can be assigned a crew station, like weapons, navigation, or
-communication.
-
-</Notes>
-
----
-
-# I wonder if...
-
-<div
-  style={{ display: "flex", justifyContent: "space-around", minHeight: "30vh" }}
->
-  <img src={require("../assets/react.svg")} style={{ width: "400px" }} />
-  <img src={require("../assets/graphql.svg")} style={{ width: "300px" }} />
-</div>
-
-<Notes>
-I wondered if I could learn React and GraphQL while making these spaceship controls,
-and even wondered if it were possible. The only way for me to find out was to do it,
-so I started small, worked a bit every day, and eventually produced a completed product.
-
-What exactly do these spaceship controls entail?
-
-</Notes>
-
----
-
-# Open Source
-
-## [https://github.com/thorium-sim](https://github.com/thorium-sim)
-
-<Notes>
-  All of my code is available online. Anyone can see it, comment on it, change
-  it, etc. It's learning in the open.
-</Notes>
-
----
-
 # Space Centers
 
 ---
@@ -345,6 +299,46 @@ a result.
 <ShipLogo />
 
 # Thorium
+
+<Notes>
+To help facilitate these experiences, I built Thorium.
+
+Thorium is a central server that browsers connect to. Each browser has a client
+ID and can be assigned a crew station, like weapons, navigation, or
+communication.
+
+</Notes>
+
+---
+
+# I wonder if...
+
+<div
+  style={{ display: "flex", justifyContent: "space-around", minHeight: "30vh" }}
+>
+  <img src={require("../assets/react.svg")} style={{ width: "400px" }} />
+  <img src={require("../assets/graphql.svg")} style={{ width: "300px" }} />
+</div>
+
+<Notes>
+I wondered if I could learn React and GraphQL while making these spaceship controls,
+and even wondered if it were possible. The only way for me to find out was to do it,
+so I started small, worked a bit every day, and eventually produced a completed product.
+
+What exactly do these spaceship controls entail?
+
+</Notes>
+
+---
+
+# Open Source
+
+## [https://github.com/thorium-sim](https://github.com/thorium-sim)
+
+<Notes>
+  All of my code is available online. Anyone can see it, comment on it, change
+  it, etc. It's learning in the open.
+</Notes>
 
 ---
 
@@ -480,7 +474,7 @@ contacts; }
 
 ```CSS
 .moving-object {
-  transform: translate 50ms linear;
+  transition: translate 50ms linear;
 }
 ```
 
