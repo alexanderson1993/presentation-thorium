@@ -429,6 +429,28 @@ really easy to do.
 
 ---
 
+```GraphQL
+ extend type Mutation {
+    """
+    Macro: Flight: Start Training Mode
+    """
+    trainingMode(simulatorId: ID!): String
+
+    """
+    Macro: Simulator: Change Simulator Layout
+    """
+    changeSimulatorLayout(simulatorId: ID!, layout: String!): String
+
+    """
+    Macro: Simulator: Change Alert Level
+    """
+    changeSimulatorAlertLevel(simulatorId: ID!, alertLevel: String!): String
+
+ }
+```
+
+---
+
 # Subscription-based Animations
 
 <Notes>
