@@ -5,10 +5,22 @@ import ShipModel from "./components/ShipModel";
 import PlanetaryScan from "./components/PlanetaryScan";
 import BadGuySurround from "./components/BadGuySurround";
 import BadGuyHologram from "./components/BadGuyHologram";
+import Speakers from "./components/Speakers";
 import { DarkSlide, CodeSlide, RedAlertSlide, BlueAlertSlide } from "./slides";
 import RegularComponent from "./regular-component";
 
 <ShipLogo />
+
+---
+
+<img
+  src={require("../assets/me.jpg")}
+  style={{
+    height: "50vh"
+  }}
+/>
+
+# @ralex1993
 
 ---
 
@@ -142,14 +154,44 @@ export default BlueAlertSlide;
 
 ---
 
-<img
-  src={require("../assets/me.jpg")}
-  style={{
-    height: "50vh"
-  }}
-/>
+<ShipLogo />
 
-# @ralex1993
+# Thorium
+
+<Notes>
+To help facilitate these experiences, I built Thorium.
+
+Thorium is a central server that browsers connect to. Each browser has a client
+ID and can be assigned a crew station, like weapons, navigation, or
+communication.
+
+</Notes>
+
+---
+
+<div
+  style={{ display: "flex", justifyContent: "space-around", minHeight: "30vh" }}
+>
+  <img src={require("../assets/react.svg")} style={{ width: "400px" }} />
+  <img src={require("../assets/graphql.svg")} style={{ width: "300px" }} />
+</div>
+
+<Notes>
+I wondered if I could learn React and GraphQL while making these spaceship controls,
+and even wondered if it were possible. The only way for me to find out was to do it,
+so I started small, worked a bit every day, and eventually produced a completed product.
+
+What exactly do these spaceship controls entail?
+
+</Notes>
+
+---
+
+<img src={require("../assets/hypercard.png")} style={{ height: "20vh" }} />
+
+---
+
+<img src={require("../assets/vic.jpg")} style={{ height: "70vh" }} />
 
 ---
 
@@ -331,17 +373,6 @@ What exactly do these spaceship controls entail?
 
 ---
 
-# Open Source
-
-## [https://github.com/thorium-sim](https://github.com/thorium-sim)
-
-<Notes>
-  All of my code is available online. Anyone can see it, comment on it, change
-  it, etc. It's learning in the open.
-</Notes>
-
----
-
 # DEMO
 
 ## I Wonder If...
@@ -408,18 +439,9 @@ really easy to do.
 
 ---
 
-# Main Viewscreen
-
-<Notes>
-  I wondered if the main viewscreen can be dynamically changed based on the
-  state of the simulator.
-</Notes>
-
----
-
 # Mission Timeline &
 
-# Mutation Macros
+# Mutation Actions
 
 <Notes>
   I use an introspection query to figure out what GraphQL mutations are able to
@@ -432,22 +454,44 @@ really easy to do.
 ```GraphQL
  extend type Mutation {
     """
-    Macro: Flight: Start Training Mode
-    """
-    trainingMode(simulatorId: ID!): String
-
-    """
-    Macro: Simulator: Change Simulator Layout
+    Action: Simulator: Change Simulator Layout
     """
     changeSimulatorLayout(simulatorId: ID!, layout: String!): String
 
+
     """
-    Macro: Simulator: Change Alert Level
+    Action: Simulator: Change Alert Level
     """
     changeSimulatorAlertLevel(simulatorId: ID!, alertLevel: String!): String
 
  }
 ```
+
+---
+
+```graphql
+query IntrospectionQuery {
+  __schema {
+    mutationType {
+      name
+      description
+      fields {
+        name
+        description
+      }
+    }
+  }
+}
+```
+
+---
+
+# Main Viewscreen
+
+<Notes>
+  I wondered if the main viewscreen can be dynamically changed based on the
+  state of the simulator.
+</Notes>
 
 ---
 
@@ -511,21 +555,28 @@ contacts; }
 <ul style={{ textAlign: "left" }}>
   <li style={{ fontSize: "1px" }}>Tracking open web browser tabs</li>
   <li style={{ fontSize: "1px" }}>React Component Plugins with React.lazy</li>
-  <li style={{ fontSize: "1px" }}>React renderer for DMX lighting</li>
+  <li style={{ fontSize: "1px" }}>
+    React renderer for computer controlled lighting
+  </li>
   <li style={{ fontSize: "1px" }}>Multi-channel web-audio</li>
 </ul>
 
 ---
 
-# Wonder & Serendipity
+# Open Source
 
-> It’s something that is both unexpected and fortunate. It’s what I didn’t even
-> know I was looking for but goes beyond my imagination. We can’t force it; it
-> happens to us and makes us feel alive.
+## [https://github.com/thorium-sim](https://github.com/thorium-sim)
 
-<cite>
-  Henry Zhu - <em>Seeking Serendipity</em>
-</cite>
+<Notes>
+  All of my code is available online. Anyone can see it, comment on it, change
+  it, etc. It's learning in the open.
+</Notes>
+
+---
+
+# @ ReactConf
+
+<Speakers />
 
 ---
 
@@ -546,27 +597,15 @@ contacts; }
 
 ---
 
-<div
-  style={{
-    display: "flex",
-    flexDirection: "column",
-    justifyContent: "space-around",
-    height: "80vh",
-    marginTop: "-120px"
-  }}
->
-  <h1 style={{ marginBottom: "20px" }}>sarahdrasnerdesign.com</h1>
-  <div>
-    <img src={require("../assets/drasner.gif")} />
-  </div>
-  <cite>Sarah Drasner</cite>
-</div>
+# Wonder & Serendipity
 
----
+> It’s something that is both unexpected and fortunate. It’s what I didn’t even
+> know I was looking for but goes beyond my imagination. We can’t force it; it
+> happens to us and makes us feel alive.
 
-# Wonder-driven Development
-
-> I wonder if...
+<cite>
+  Henry Zhu - <em>Seeking Serendipity</em>
+</cite>
 
 ---
 
